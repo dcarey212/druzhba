@@ -68,7 +68,7 @@ def generate_copy_query(table_to_copy, copy_target_url, iam_copy_role, manifest_
         COPY "{table_to_copy}" FROM '{s3_path}'
         CREDENTIALS 'aws_iam_role={iam_copy_role}'
         {manifest}
-        FORMAT AS AVRO 'auto'
+        FORMAT AS AVRO 'noshred'
         EXPLICIT_IDS ACCEPTINVCHARS TRUNCATECOLUMNS
         COMPUPDATE OFF STATUPDATE OFF;
         """.format(

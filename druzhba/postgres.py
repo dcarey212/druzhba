@@ -34,8 +34,6 @@ class PostgreSQLTableConfig(TableConfig):
             "text",
             "bytea",
             "name",
-            "json",
-            "jsonb",
             "varchar",
             "timestamp",
             "date",
@@ -48,6 +46,7 @@ class PostgreSQLTableConfig(TableConfig):
         "double": {"float4", "float8"},
         "boolean": {"bool"},
         "decimal": {"decimal", "numeric", "money"},
+        "map": {"json", "jsonb"}
     }
     _pg_types = None
 

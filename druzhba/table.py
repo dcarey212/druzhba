@@ -806,6 +806,8 @@ class TableConfig(object):
             elif col_type in self.avro_type_map["decimal"]:
                 # string is used since they work fine and redshift may not copy decimal types from avro
                 schema["type"] = ["null", "string"]
+            elif col_type in self.avro_type_map["map"]:
+                schema["type"] = ["null", "map"]
             else:
                 self.logger.warning(
                     "unmatched data type for column %s in %s table %s",
